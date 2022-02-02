@@ -4,7 +4,7 @@
     "description": "",
     "main": "src/server.ts",
     "scripts": {
-        "start": "nodemon src/server.ts"
+        "start": "nodemon --files src/server.ts"
     },
     "keywords": [],
     "author": "",
@@ -21,6 +21,7 @@
         "express": "^4.17.2",
         "jsonwebtoken": "^8.5.1",
         "mongoose": "^6.1.7",
-        "nodemon": "^2.0.15"
+        "nodemon": "^2.0.15",
+        "ts-node-dev": "^1.1.8"
     }
 }
