@@ -1,6 +1,7 @@
-import User from './User'
-import Client from './Client'
-import Project from './Project'
-import Invoices from './Invoices'
+import User from './user'
+import Client from './client'
+import Project from './project'
+import Invoice from './invoice'
+import Subcontractor from './Subcontractor'
 
-export { User, Client, Project, Invoices }
+export { User, Client, Project, Invoice, Subcontractor }

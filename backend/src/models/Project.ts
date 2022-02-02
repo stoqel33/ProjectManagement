@@ -1,12 +1,18 @@
 import mongoose, { Schema } from 'mongoose'
-import { IProject } from '../interfaces'
+import { IProject, ProjectStatus } from '../interfaces'
 
 const ProjectSchema = new Schema({
-    status: { type: Number, required: true },
+    status: {
+        type: String,
+        required: true,
+        enum: ProjectStatus
+    },
     title: { type: String, required: [true, 'Project status is required'] },
-    descritpion: { type: String, required: [true, 'Project description is required'] },
+    description: { type: String, required: [true, 'Project description is required'] },
     clientId: { type: Schema.Types.ObjectId, required: true },
+    userId: { type: Schema.Types.ObjectId, required: true },
     grossPrice: { type: Number, required: [true, 'Project gross price is required'] },
+    taxRate: { type: Number, required: [true, 'Project tax rate is required'] },
     netPrice: { type: Number, required: true },
     createdDate: { type: Date, required: [true, 'Project created date is required'] },
     deadline: { type: Date, required: [true, 'Project deadline is required'] },
