@@ -1,26 +1,27 @@
-import { Document } from 'mongoose'
+import { Document, Types } from 'mongoose'
 
-enum ProjectStatus {
-    Initial,
-    InProgress,
-    TestingPhase,
-    PendingApproval,
-    Done,
-    ProblemNotified,
-    NotApproved
+export enum ProjectStatus {
+    Initial = 'Initial',
+    InProgress = 'InProgress',
+    TestingPhase = 'TestingPhase',
+    PendingApproval = 'PendingApproval',
+    Done = 'Done',
+    ProblemNotified = 'ProblemNotified',
+    NotApproved = 'NotApproved'
 }
 
 export default interface IProject extends Document {
     status: ProjectStatus
     title: string
-    descritpion: string
-    clientId: number
+    description: string
+    clientId: Types.ObjectId
+    userId: Types.ObjectId
     grossPrice: number
+    taxRate: number
     netPrice: number
     createdDate: Date
     deadline: Date
     category?: string
-    subcontractor: boolean
-    subcontractorId?: number
+    subcontractorId?: Types.ObjectId
     picture?: string
 }
