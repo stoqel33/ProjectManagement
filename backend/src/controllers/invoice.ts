@@ -45,7 +45,7 @@ const getAllInvoices = async (req: Request, res: Response) => {
 
 const createInvoice = async (req: Request, res: Response) => {
     try {
-        const { name, clientId, subcontractorId, picture }: IInvoice = req.body
+        const { name, clientId, subcontractorId, picture, projectId }: IInvoice = req.body
 
         const newInvoice = new Invoice({
             name,
@@ -53,6 +53,7 @@ const createInvoice = async (req: Request, res: Response) => {
             clientId,
             subcontractorId,
             picture,
+            projectId,
             userId: req.user.id
         })
 
