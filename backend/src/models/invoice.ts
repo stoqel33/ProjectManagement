@@ -8,11 +8,11 @@ const InvoiceSchema = new Schema<IInvoice>({
         required: [true, 'Invoice type is required'],
         enum: InvoiceType
     },
-    userId: { type: Schema.Types.ObjectId, required: true },
-    clientId: { type: Schema.Types.ObjectId },
+    userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+    clientId: { type: Schema.Types.ObjectId, ref: 'Client' },
     subcontractorId: { type: Schema.Types.ObjectId },
     picture: { type: String },
-    projectId: { type: [Schema.Types.ObjectId] }
+    projectId: [{ type: Schema.Types.ObjectId, ref: 'Project' }]
 })
 
 const Invoice = mongoose.model<IInvoice>('Invoice', InvoiceSchema)

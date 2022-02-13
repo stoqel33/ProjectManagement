@@ -8,7 +8,7 @@ const UserSchema = new Schema({
         required: [true, 'Password is required'],
         minLength: [8, 'Password must have minimum 8 characters']
     },
-    avatar: String
+    avatar: { type: String }
 })
 
 const User = mongoose.model<IUser>('User', UserSchema)
