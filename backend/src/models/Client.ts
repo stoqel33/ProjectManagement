@@ -11,9 +11,9 @@ const ClientSchema = new Schema({
     phoneNumber: { type: String, required: [true, 'Client phone number is required'] },
     address: { type: String, required: [true, 'Client address is required'] },
     postalCode: { type: String, required: [true, 'Client postal code is required'] },
-    invoices: { type: [Schema.Types.ObjectId] },
-    userId: { type: Schema.Types.ObjectId, required: true },
-    projectId: { type: [Schema.Types.ObjectId] }
+    invoices: [{ type: Schema.Types.ObjectId, ref: 'Invoice' }],
+    userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+    projectId: [{ type: Schema.Types.ObjectId, ref: 'Project' }]
 })
 
 const Client = mongoose.model<IClient>('Client', ClientSchema)

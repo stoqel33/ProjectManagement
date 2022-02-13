@@ -11,9 +11,9 @@ const SubcontractorSchema = new Schema<ISubcontractor>({
     phoneNumber: { type: String, required: [true, 'Subcontractor phone number is required'] },
     address: { type: String, required: [true, 'Subcontractor address is required'] },
     postalCode: { type: String, required: [true, 'Subcontractor postal code is required'] },
-    invoices: { type: [Schema.Types.ObjectId] },
-    userId: { type: Schema.Types.ObjectId, required: true },
-    projectId: { type: [Schema.Types.ObjectId] }
+    invoices: [{ type: Schema.Types.ObjectId, ref: 'Invoice' }],
+    userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+    projectId: [{ type: Schema.Types.ObjectId, ref: 'Project' }]
 })
 
 const Subcontractor = mongoose.model<ISubcontractor>('Subcontractor', SubcontractorSchema)
