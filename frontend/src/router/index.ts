@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import { setI18nLanguage, loadLocaleMessages, SUPPORT_LOCALES } from '@/i18n'
 
 import HomeView from '../views/HomeView.vue'
@@ -6,7 +6,7 @@ import HomeView from '../views/HomeView.vue'
 export function setupRouter(i18n) {
   const locale = i18n.mode === 'legacy' ? i18n.global.locale : i18n.global.locale.value
 
-  const routes = [
+  const routes: Array<RouteRecordRaw> = [
     {
       path: '/',
       name: 'home',
