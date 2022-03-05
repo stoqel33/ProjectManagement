@@ -52,7 +52,7 @@ const deleteUser = async (req: Request, res: Response) => {
 
         try {
             await User.findOneAndDelete(req.user)
-            return res.status(200).json('User has been deleted')
+            return res.status(200).json({ message: 'User has been deleted' })
         } catch (err) {
             return res.status(500).json(err)
         }

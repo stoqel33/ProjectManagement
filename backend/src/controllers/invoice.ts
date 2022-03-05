@@ -107,7 +107,7 @@ const deleteInvoice = async (req: Request, res: Response) => {
                 { $pull: { invoices: invoice?._id } }
             )
 
-            return res.status(200).json('Invoice has been deleted')
+            return res.status(200).json({ message: 'Invoice has been deleted' })
         }
         return res.status(200).redirect('/')
     } catch (err) {
