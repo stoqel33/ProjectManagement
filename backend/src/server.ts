@@ -1,10 +1,17 @@
 import express from 'express'
 import mongoose from 'mongoose'
+import cors from 'cors'
 
 import { auth, client, user, invoice, project, subcontractor } from './routes'
 import config from './config/config'
 
 const app = express()
+
+app.use(
+    cors({
+        origin: '*'
+    })
+)
 
 main().catch((err) => console.log(err))
 
