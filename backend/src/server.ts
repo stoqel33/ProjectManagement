@@ -22,12 +22,12 @@ async function main() {
 
 app.use(express.json())
 
-app.use('/', auth)
-app.use('/user', user)
-app.use('/client', client)
-app.use('/invoice', invoice)
-app.use('/project', project)
-app.use('/subcontractor', subcontractor)
+app.use('/api/', auth)
+app.use('/api/user', user)
+app.use('/api/client', client)
+app.use('/api/invoice', invoice)
+app.use('/api/project', project)
+app.use('/api/subcontractor', subcontractor)
 
 app.listen(8000, () => {
     console.log('backend is run')
