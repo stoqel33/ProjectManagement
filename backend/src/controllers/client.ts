@@ -105,7 +105,7 @@ const deleteClient = async (req: Request, res: Response) => {
         const client = await Client.findById(req.body.id)
         if (req.user.id === client?.userId.toString()) {
             await Client.findByIdAndDelete(req.body.id)
-            return res.status(200).json('Client has been deleted')
+            return res.status(200).json({ message: 'Client has been deleted' })
         }
         return res.status(200).redirect('/')
     } catch (err) {

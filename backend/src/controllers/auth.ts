@@ -34,14 +34,14 @@ const login = async (req: Request, res: Response) => {
         const user = await User.findOne({ email })
 
         if (!user) {
-            return res.status(401).json('Email or password is incorrect')
+            return res.status(401).json({ message: 'Email or password is incorrect' })
         }
 
         const bytes = CryptoJS.AES.decrypt(user.password, process.env.SECRET_KEY as string)
         const originalPassword = bytes.toString(CryptoJS.enc.Utf8)
 
         if (originalPassword !== password) {
-            return res.status(401).json('Email or password is incorrect')
+            return res.status(401).json({ message: 'Email or password is incorrect' })
         }
 
         const accessToken = sign({ id: user._id }, process.env.SECRET_KEY as string, {

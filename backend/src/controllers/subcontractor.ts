@@ -105,7 +105,7 @@ const deleteSubcontractor = async (req: Request, res: Response) => {
         const subcontractor = await Subcontractor.findById(req.body.id)
         if (req.user.id === subcontractor?.userId.toString()) {
             await Subcontractor.findByIdAndDelete(req.body.id)
-            return res.status(200).json('Subcontractor has been deleted')
+            return res.status(200).json({ message: 'Subcontractor has been deleted' })
         }
         return res.status(200).redirect('/')
     } catch (err) {

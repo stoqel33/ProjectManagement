@@ -110,7 +110,7 @@ const deleteProject = async (req: Request, res: Response) => {
         const project = await Project.findById(req.body.id)
         if (req.user.id === project?.userId.toString()) {
             await Project.findByIdAndDelete(req.body.id)
-            return res.status(200).json('Project has been deleted')
+            return res.status(200).json({ message: 'Project has been deleted' })
         }
         return res.status(200).redirect('/')
     } catch (err) {
